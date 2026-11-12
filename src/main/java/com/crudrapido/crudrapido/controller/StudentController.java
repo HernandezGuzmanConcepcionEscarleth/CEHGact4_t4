@@ -1,13 +1,18 @@
 package com.crudrapido.crudrapido.controller;
 
+import com.crudrapido.crudrapido.dto.StudentRequest;
+import com.crudrapido.crudrapido.dto.StudentResponse;
 import com.crudrapido.crudrapido.entity.Student;
 import com.crudrapido.crudrapido.service.StudentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/students")
@@ -16,53 +21,53 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+    // lista paginada: get /api/v1/students?page=0&size=5
     @GetMapping
-    public List<Student> getAll() {
-        return studentService.getStudents();
+    public Page<StudentResponse> getAll(
+            @PageableDefault(size = 5, sort = "studentId", direction = Sort.Direction.ASC) Pageable pageable) {
+        return studentService.getStudents(pageable).map(StudentResponse::from);
     }
 
+    // busca uno por id
     @GetMapping("/{studentId}")
-    public ResponseEntity<Student> getById(@PathVariable Long studentId) {
+    public ResponseEntity<StudentResponse> getById(@PathVariable Long studentId) {
         return studentService.getStudent(studentId)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());          // 404
+                .map(s -> ResponseEntity.ok(StudentResponse.from(s)))
+                .orElse(ResponseEntity.notFound().build());
     }
 
+    // crea un estudiante
     @PostMapping
-    public ResponseEntity<Student> create(@RequestBody Student student) {
+    public ResponseEntity<StudentResponse> create(@Valid @RequestBody StudentRequest req) {
+        Student student = new Student();
+        student.setFirstName(req.firstName());
+        student.setLastName(req.lastName());
+        student.setEmail(req.email());
         Student saved = studentService.saveOrUpdate(student);
-        return ResponseEntity.status(HttpStatus.CREATED).body(saved); // 201
+        return ResponseEntity.status(HttpStatus.CREATED).body(StudentResponse.from(saved));
     }
 
+    // actualiza completo
     @PutMapping("/{studentId}")
-    public ResponseEntity<Student> update(@PathVariable Long studentId,
-                                          @RequestBody Student student) {
-        if (studentService.getStudent(studentId).isEmpty()) {
-            return ResponseEntity.notFound().build();                // 404
-        }
-        student.setStudentId(studentId);
-        return ResponseEntity.ok(studentService.saveOrUpdate(student)); // 200
-    }
-
-    @PatchMapping("/{studentId}")
-    public ResponseEntity<Student> partialUpdate(@PathVariable Long studentId,
-                                                 @RequestBody Student changes) {
+    public ResponseEntity<StudentResponse> update(@PathVariable Long studentId,
+                                                  @Valid @RequestBody StudentRequest req) {
         return studentService.getStudent(studentId)
                 .map(existing -> {
-                    if (changes.getFirstName() != null) existing.setFirstName(changes.getFirstName());
-                    if (changes.getLastName() != null)  existing.setLastName(changes.getLastName());
-                    if (changes.getEmail() != null)     existing.setEmail(changes.getEmail());
-                    return ResponseEntity.ok(studentService.saveOrUpdate(existing));
+                    existing.setFirstName(req.firstName());
+                    existing.setLastName(req.lastName());
+                    existing.setEmail(req.email());
+                    return ResponseEntity.ok(StudentResponse.from(studentService.saveOrUpdate(existing)));
                 })
-                .orElse(ResponseEntity.notFound().build());          // 404
+                .orElse(ResponseEntity.notFound().build());
     }
 
+    // elimina
     @DeleteMapping("/{studentId}")
     public ResponseEntity<Void> delete(@PathVariable Long studentId) {
         if (studentService.getStudent(studentId).isEmpty()) {
-            return ResponseEntity.notFound().build();                // 404
+            return ResponseEntity.notFound().build();
         }
         studentService.delete(studentId);
-        return ResponseEntity.noContent().build();                   // 204
+        return ResponseEntity.noContent().build();
     }
 }

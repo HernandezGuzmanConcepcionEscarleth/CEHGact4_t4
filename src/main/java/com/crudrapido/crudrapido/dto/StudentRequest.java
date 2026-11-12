@@ -1,26 +1,26 @@
 package com.crudrapido.crudrapido.dto;
 
-// Importamos las validaciones que vamos a utilizar
+// importamos las validaciones que se utilizan para revisar los datos
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-// Este record sirve para recibir los datos de un estudiante
+// datos que entran en post y put, con sus validaciones
 public record StudentRequest(
 
-        // El nombre no debe estar vacío y puede tener máximo 50 caracteres
-        @NotBlank(message = "El nombre es obligatorio")
-        @Size(max = 50, message = "El nombre no puede pasar de 50 caracteres")
+        // el nombre es obligatorio y no debe pasar de 50 caracteres
+        @NotBlank(message = "el nombre es obligatorio")
+        @Size(max = 50, message = "el nombre no puede pasar de 50 caracteres")
         String firstName,
 
-        // El apellido también es obligatorio y tiene un límite de 50 caracteres
-        @NotBlank(message = "El apellido es obligatorio")
-        @Size(max = 50, message = "El apellido no puede pasar de 50 caracteres")
+        // el apellido es obligatorio y tiene un limite de 50 caracteres
+        @NotBlank(message = "el apellido es obligatorio")
+        @Size(max = 50, message = "el apellido no puede pasar de 50 caracteres")
         String lastName,
 
-        // El correo es obligatorio y debe tener un formato de email válido
-        @NotBlank(message = "El email es obligatorio")
-        @Email(message = "El email no tiene un formato válido")
+        // el email es obligatorio y debe tener un formato correcto
+        @NotBlank(message = "el email es obligatorio")
+        @Email(message = "el email no tiene un formato valido")
         String email
 
-) {} 
+) {} // aqui termina el record

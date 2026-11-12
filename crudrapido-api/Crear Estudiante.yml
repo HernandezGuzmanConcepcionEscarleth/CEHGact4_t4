@@ -11,12 +11,7 @@ http:
       value: application/json
   body:
     type: json
-    data: |-
-      {
-        "firstName": "Ana",
-        "lastName": "Ruiz",
-        "email": "ana@example.com"
-      }
+    data: '{ "firstName": "Ana", "lastName": "Ruiz", "email": "ana@example.com" }'
   auth: inherit
 
 settings:

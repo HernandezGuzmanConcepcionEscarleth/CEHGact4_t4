@@ -10,7 +10,7 @@ http:
     type: json
     data: |2-
         {
-          "firstName": "Christian",
+          "firstName": "Maria",
           "lastName": "Gámez",
           "email": "christian.nuevo@example.com"
         }

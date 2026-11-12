@@ -5,7 +5,14 @@ info:
 
 http:
   method: GET
-  url: http://localhost:8088/api/v1/students
+  url: http://localhost:8088/api/v1/students?page=0&size=2
+  params:
+    - name: page
+      value: "0"
+      type: query
+    - name: size
+      value: "2"
+      type: query
   auth: inherit
 
 settings:
