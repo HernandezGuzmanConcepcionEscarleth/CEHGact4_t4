@@ -1,20 +1,22 @@
 info:
   name: Actualizar Estudaintee
   type: http
-  seq: 3
+  seq: 7
 
 http:
   method: PUT
   url: http://localhost:8088/api/v1/students/1
   body:
     type: json
-    data: |2-
-        {
-          "firstName": "Maria",
-          "lastName": "Gámez",
-          "email": "christian.nuevo@example.com"
-        }
-  auth: inherit
+    data: |-
+      {
+        "firstName": "Concepcion",
+        "lastName": "Hernandez Actualizada",
+        "email": "concepcion.actualizada@gmail.com"
+      }
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJlc2NhcmxldGgiLCJpYXQiOjE3OTQ1MjQ5MzQsImV4cCI6MTc5NDUyODUzNH0.-PmM2vTWwwZQdo45GmXYswAjSNjU_LqKgVpkrEzNw2gqorkeVtHAm6uGYvps6yGz
 
 settings:
   encodeUrl: true

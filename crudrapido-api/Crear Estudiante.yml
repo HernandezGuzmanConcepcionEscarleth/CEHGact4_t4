@@ -1,7 +1,7 @@
 info:
   name: Crear Estudiante
   type: http
-  seq: 2
+  seq: 6
 
 http:
   method: POST
@@ -11,8 +11,15 @@ http:
       value: application/json
   body:
     type: json
-    data: '{ "firstName": "Ana", "lastName": "Ruiz", "email": "ana@example.com" }'
-  auth: inherit
+    data: |-
+      {
+        "firstName": "Concepcion",
+        "lastName": "Hernandez Guzman",
+        "email": "concepcion@gmail.com"
+      }
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJlc2NhcmxldGgiLCJpYXQiOjE3OTQ1MjQ5MzQsImV4cCI6MTc5NDUyODUzNH0.-PmM2vTWwwZQdo45GmXYswAjSNjU_LqKgVpkrEzNw2gqorkeVtHAm6uGYvps6yGz
 
 settings:
   encodeUrl: true

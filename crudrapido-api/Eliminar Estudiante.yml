@@ -1,12 +1,14 @@
 info:
   name: Eliminar Estudiante
   type: http
-  seq: 4
+  seq: 8
 
 http:
   method: DELETE
   url: http://localhost:8088/api/v1/students/2
-  auth: inherit
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJlc2NhcmxldGgiLCJpYXQiOjE3OTQ1MjQ5MzQsImV4cCI6MTc5NDUyODUzNH0.-PmM2vTWwwZQdo45GmXYswAjSNjU_LqKgVpkrEzNw2gqorkeVtHAm6uGYvps6yGz
 
 settings:
   encodeUrl: true
