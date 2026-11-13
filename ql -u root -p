@@ -1,0 +1,20 @@
+[33mcommit 3a6fc2df38e56584b5a095baf367a38ec1fe646f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Escarleth <https://github.com/HernandezGuzmanConcepcionEscarleth/CEHGact4_t4>
+Date:   Thu Nov 12 17:49:08 2026 -0600
+
+    Agrega pruebas de API con Bruno
+
+ crudrapido-api/.gitignore                          |  9 [31m-------[m
+ crudrapido-api/Acceso sin token.yml                | 15 [31m-----------[m
+ crudrapido-api/Actualizar Estudaintee.yml          | 26 [31m------------------[m
+ crudrapido-api/Consultar Estudiante po ID.yml      | 18 [31m-------------[m
+ crudrapido-api/Crear Estudiante.yml                | 29 [31m--------------------[m
+ crudrapido-api/Eliminar Estudiante.yml             | 18 [31m-------------[m
+ crudrapido-api/ID inexistente.yml                  | 16 [31m-----------[m
+ crudrapido-api/Lista Estudiantes.yml               | 31 [31m----------------------[m
+ .../Lista de Estudiente con paginacion.yml         | 25 [31m-----------------[m
+ crudrapido-api/Peticion de registro.yml            | 24 [31m-----------------[m
+ crudrapido-api/Prueba de Login.yml                 | 23 [31m----------------[m
+ crudrapido-api/Registro de usuario.yml             | 24 [31m-----------------[m
+ crudrapido-api/opencollection.yml                  | 10 [31m-------[m
+ 13 files changed, 268 deletions(-)

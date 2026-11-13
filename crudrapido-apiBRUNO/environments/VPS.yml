@@ -1,0 +1,5 @@
+name: VPS
+variables:
+  - name: baseUrl
+    value: http://179.197.82.130:8088
+    description: ""

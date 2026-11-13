@@ -5,17 +5,17 @@ info:
 
 http:
   method: GET
-  url: http://localhost:8088/api/v1/students?page=1&size=5
+  url: "{{baseUrl}}/api/v1/students?page=0&size=5"
   params:
     - name: page
-      value: "1"
+      value: "0"
       type: query
     - name: size
       value: "5"
       type: query
   auth:
     type: bearer
-    token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJlc2NhcmxldGgiLCJpYXQiOjE3OTQ1MjQ5MzQsImV4cCI6MTc5NDUyODUzNH0.-PmM2vTWwwZQdo45GmXYswAjSNjU_LqKgVpkrEzNw2gqorkeVtHAm6uGYvps6yGz
+    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlc2NhcmxldGgiLCJpYXQiOjE3OTQ1MzQ3MjUsImV4cCI6MTc5NDUzODMyNX0.lOBSqMGXEIKDjEfy4Et02bzOjfI584Ylx78FrnMSpwc
 
 settings:
   encodeUrl: true

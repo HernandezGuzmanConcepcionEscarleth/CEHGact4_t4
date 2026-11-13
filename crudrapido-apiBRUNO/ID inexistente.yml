@@ -5,8 +5,10 @@ info:
 
 http:
   method: GET
-  url: http://localhost:8088/api/v1/students/999
-  auth: inherit
+  url: "{{baseUrl}}/api/v1/students/999"
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJlc2NhcmxldGgiLCJpYXQiOjE3OTQ1MzQ3MjUsImV4cCI6MTc5NDUzODMyNX0.lOBSqMGXEIKDjEfy4Et02bzOjfI584Ylx78FrnMSpwc
 
 settings:
   encodeUrl: true

@@ -5,15 +5,14 @@ info:
 
 http:
   method: POST
-  url: http://localhost:8088/api/auth/login
+  url: "{{baseUrl}}/api/auth/login"
   body:
     type: json
     data: |
-      {
-        "username": "escarleth",
-        "password": "12345678"
-      }
-  auth: inherit
+      { "username": "escarleth", "password": "123456789" }
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzM4NCJ9.eyJzdWIiOiJlc2NhcmxldGgiLCJpYXQiOjE3OTQ1MjQ5MzQsImV4cCI6MTc5NDUyODUzNH0.-PmM2vTWwwZQdo45GmXYswAjSNjU_LqKgVpkrEzNw2gqorkeVtHAm6uGYvps6yGz
 
 settings:
   encodeUrl: true
