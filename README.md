@@ -46,15 +46,15 @@ Las rutas `/api/auth/**` son públicas; todo lo demás exige token.
 
 ## Endpoints
 
-| Método | Ruta | Descripción | Auth | 
-|---|---|---|---|---|
-| POST | `/api/auth/register` | Registrar usuario | No | 
-| POST | `/api/auth/login` | Iniciar sesión, devuelve token | No | 
-| GET | `/api/v1/students?page=0&size=5` | Listar estudiantes (paginado) | Sí | 
-| GET | `/api/v1/students/{id}` | Ver un estudiante | Sí | 
-| POST | `/api/v1/students` | Crear estudiante | Sí | 
-| PUT | `/api/v1/students/{id}` | Actualizar estudiante | Sí | 
-| DELETE | `/api/v1/students/{id}` | Eliminar estudiante | Sí | 
+| Método | Ruta | Descripción | Auth |
+|---|---|---|---|
+| POST | `/api/auth/register` | Registrar usuario | No |
+| POST | `/api/auth/login` | Iniciar sesión, devuelve token | No |
+| GET | `/api/v1/students?page=0&size=5` | Listar estudiantes (paginado) | Sí |
+| GET | `/api/v1/students/{id}` | Ver un estudiante | Sí |
+| POST | `/api/v1/students` | Crear estudiante | Sí |
+| PUT | `/api/v1/students/{id}` | Actualizar estudiante | Sí |
+| DELETE | `/api/v1/students/{id}` | Eliminar estudiante | Sí |
 
 ### Ejemplos de body
 
