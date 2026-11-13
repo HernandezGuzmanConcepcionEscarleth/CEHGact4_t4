@@ -46,15 +46,15 @@ Las rutas `/api/auth/**` son públicas; todo lo demás exige token.
 
 ## Endpoints
 
-| Método | Ruta | Descripción | Auth | Códigos |
+| Método | Ruta | Descripción | Auth | 
 |---|---|---|---|---|
-| POST | `/api/auth/register` | Registrar usuario | No | 201, 400, 409 |
-| POST | `/api/auth/login` | Iniciar sesión, devuelve token | No | 200, 400, 401 |
-| GET | `/api/v1/students?page=0&size=5` | Listar estudiantes (paginado) | Sí | 200, 401 |
-| GET | `/api/v1/students/{id}` | Ver un estudiante | Sí | 200, 401, 404 |
-| POST | `/api/v1/students` | Crear estudiante | Sí | 201, 400, 401 |
-| PUT | `/api/v1/students/{id}` | Actualizar estudiante | Sí | 200, 400, 401, 404 |
-| DELETE | `/api/v1/students/{id}` | Eliminar estudiante | Sí | 204, 401, 404 |
+| POST | `/api/auth/register` | Registrar usuario | No | 
+| POST | `/api/auth/login` | Iniciar sesión, devuelve token | No | 
+| GET | `/api/v1/students?page=0&size=5` | Listar estudiantes (paginado) | Sí | 
+| GET | `/api/v1/students/{id}` | Ver un estudiante | Sí | 
+| POST | `/api/v1/students` | Crear estudiante | Sí | 
+| PUT | `/api/v1/students/{id}` | Actualizar estudiante | Sí | 
+| DELETE | `/api/v1/students/{id}` | Eliminar estudiante | Sí | 
 
 ### Ejemplos de body
 
